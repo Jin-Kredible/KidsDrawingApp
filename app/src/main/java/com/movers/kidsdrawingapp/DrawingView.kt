@@ -3,6 +3,7 @@ package com.movers.kidsdrawingapp
 import android.content.Context
 import android.graphics.*
 import android.util.AttributeSet
+import android.util.TypedValue
 import android.view.MotionEvent
 import android.view.View
 
@@ -30,7 +31,7 @@ class DrawingView(context : Context, attrs : AttributeSet) : View(context, attrs
         mDrawPaint!!.strokeJoin = Paint.Join.ROUND
         mDrawPaint!!.strokeCap = Paint.Cap.ROUND
         mCanvasPaint = Paint(Paint.DITHER_FLAG)
-        mBrushSize = 20F
+//        mBrushSize = 20F
 
 
     }
@@ -86,6 +87,15 @@ class DrawingView(context : Context, attrs : AttributeSet) : View(context, attrs
         return true
 
     }
+
+    fun setSizeForBrush(newSize :Float) {
+        mBrushSize = TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP,
+                newSize, resources.displayMetrics
+        )
+
+
+    }
+
 
     internal inner class CustomPath(var color: Int, var brushThickness : Float) : Path() {
 
