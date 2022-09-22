@@ -36,6 +36,11 @@ class DrawingView(context : Context, attrs : AttributeSet) : View(context, attrs
 
     }
 
+    fun setColors(newColor : String) {
+        color = Color.parseColor(newColor)
+        mDrawPaint?.color = color
+    }
+
     override fun onSizeChanged(w: Int, h: Int, oldw: Int, oldh: Int) {
         super.onSizeChanged(w, h, oldw, oldh)
         mCanvasBitMap = Bitmap.createBitmap(w,h,Bitmap.Config.ARGB_8888)
